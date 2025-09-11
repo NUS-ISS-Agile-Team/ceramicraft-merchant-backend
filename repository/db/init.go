@@ -22,7 +22,6 @@ func Init() {
 		config.Config.MySQL.Port,
 		config.Config.MySQL.DBName,
 	)
-	fmt.Println(dsn)
 	DB, err = gorm.Open(mysql.Open(dsn),
 		&gorm.Config{
 			PrepareStmt:            true,

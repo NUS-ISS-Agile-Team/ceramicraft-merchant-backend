@@ -9,6 +9,7 @@ require (
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/gin-swagger v1.3.2
 	github.com/swaggo/swag v1.16.6
+	go.uber.org/zap v1.27.0
 	gopkg.in/mail.v2 v2.3.1
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.5
@@ -64,8 +65,7 @@ require (
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
-	go.uber.org/multierr v1.9.0 // indirect
+	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/arch v0.8.0 // indirect
 	golang.org/x/crypto v0.42.0 // indirect
 	golang.org/x/mod v0.28.0 // indirect
