@@ -8,3 +8,8 @@ mysql:
   userName: "root"
   password: "1234"
   dbName: "merchant"
+
+email:
+  smtpHost: "smtp.qq.com"
+  smtpEmail: "656501226@qq.com"
+  smtpPass: "gshxhorkksdobfdc"
