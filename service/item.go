@@ -10,18 +10,14 @@ type ItemService struct{
 	itemDao dao.ItemDao
 }
 
-var once sync.Once
-var itemService *ItemService
+
+
 
 func GetItemService(itd dao.ItemDao) *ItemService {
-	once.Do(func() {
-		itemService = &ItemService{
-			itemDao: itd,
-		}
-	})
-	return itemService
+	return &ItemService{
+		itemDao: itd,
+	}
 }
-
 func (is *ItemService) GetItemList() (resp interface{}, err error) {
 	itemList, err := is.itemDao.GetItemList()
 	if err != nil {
