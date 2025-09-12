@@ -1,0 +1,67 @@
+definitions:
+  ctl.Response:
+    properties:
+      data: {}
+      error:
+        type: string
+      msg:
+        type: string
+      status:
+        type: integer
+    type: object
+  types.ItemListResp:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/types.ItemResp'
+        type: array
+      total:
+        type: integer
+    type: object
+  types.ItemResp:
+    properties:
+      category_id:
+        type: integer
+      description:
+        type: string
+      id:
+        type: integer
+      img_path:
+        type: string
+      num:
+        type: integer
+      on_sale:
+        type: boolean
+      price:
+        type: string
+      title:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/v1/items:
+    get:
+      consumes:
+      - application/json
+      description: 获取所有商品的列表信息
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 成功获取商品列表
+          schema:
+            allOf:
+            - $ref: '#/definitions/ctl.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/types.ItemListResp'
+              type: object
+        "500":
+          description: 获取商品列表失败
+          schema:
+            $ref: '#/definitions/ctl.Response'
+      summary: 获取商品列表
+      tags:
+      - 商品管理
+swagger: "2.0"
