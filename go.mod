@@ -6,6 +6,7 @@ toolchain go1.24.7
 
 require (
 	github.com/gin-gonic/gin v1.10.1
+	github.com/golang/mock v1.6.0
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/gin-swagger v1.3.2
 	github.com/swaggo/swag v1.16.6
@@ -46,7 +47,6 @@ require (
 	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
-	github.com/golang/mock v1.6.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/josharian/intern v1.0.0 // indirect

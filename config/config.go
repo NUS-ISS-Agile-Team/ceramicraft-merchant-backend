@@ -8,14 +8,15 @@ import (
 )
 
 var (
-	Config *Conf
+	Config   *Conf
 	initOnce sync.Once
 )
 
 type Conf struct {
-	System *System `yaml:"system"`
-	MySQL  *MySQL  `yaml:"mysql"`
-	Email  *Email  `yaml:"email"`
+	System    *System    `yaml:"system"`
+	MySQL     *MySQL     `yaml:"mysql"`
+	Email     *Email     `yaml:"email"`
+	LogConfig *LogConfig `yaml:"logConfig"`
 }
 
 type System struct {
@@ -35,6 +36,11 @@ type Email struct {
 	SmtpHost  string `yaml:"smtpHost"`
 	SmtpEmail string `yaml:"smtpEmail"`
 	SmtpPass  string `yaml:"smtpPass"`
+}
+
+type LogConfig struct {
+	Level    string `yaml:"level"`
+	FilePath string `yaml:"filePath"`
 }
 
 // GetConfig 获取配置，如果配置未初始化则自动初始化
