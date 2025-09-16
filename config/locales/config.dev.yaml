@@ -3,10 +3,10 @@ system:
   port: "5001"
 
 mysql:
-  host: "127.0.0.1"
+  host: "mysql-container"
   port: "3306"
   userName: "root"
-  password: "1234"
+  password: "123456"
   dbName: "merchant"
 
 email:

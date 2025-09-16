@@ -31,7 +31,10 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-	DB.AutoMigrate(
+	err = DB.AutoMigrate(
 		&model.Item{},
 	)
+	if err != nil {
+		panic(err)
+	}
 }
