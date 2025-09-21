@@ -2,7 +2,7 @@ package jwt
 
 import (
 
-	"github.com/dgrijalva/jwt-go"
+	"github.com/golang-jwt/jwt/v4"
 
 )
 
@@ -10,14 +10,14 @@ var jwtSecret = []byte("group-12")
 
 type Claims struct {
 	Username string `json:"username"`
-	jwt.StandardClaims
+	jwt.RegisteredClaims
 }
 
 // GenerateToken 签发用户Token
 func GenerateToken(username string) (accessToken string, err error) {
 	claims := Claims{
 		Username: username,
-		StandardClaims: jwt.StandardClaims{},
+		RegisteredClaims: jwt.RegisteredClaims{},
 	}
 	// 加密并获得完整的编码后的字符串token
 	accessToken, err = jwt.NewWithClaims(jwt.SigningMethodHS256, claims).SignedString(jwtSecret)

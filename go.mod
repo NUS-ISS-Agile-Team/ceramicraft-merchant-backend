@@ -5,8 +5,8 @@ go 1.24.0
 toolchain go1.24.7
 
 require (
-	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gin-gonic/gin v1.10.1
+	github.com/golang-jwt/jwt/v4 v4.5.2
 	github.com/golang/mock v1.6.0
 	github.com/spf13/viper v1.20.0
 	github.com/swaggo/gin-swagger v1.3.2
