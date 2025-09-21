@@ -23,6 +23,8 @@ func NewRouter() *gin.Engine {
 		})
 
 		v1.GET("item/list", api.GetItemListHandler)
+
+		v1.POST("user/login", api.LoginHandler)
 	}
 	return r
 }

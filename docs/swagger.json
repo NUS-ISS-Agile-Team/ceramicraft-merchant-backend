@@ -4,7 +4,7 @@
         "contact": {}
     },
     "paths": {
-        "/api/v1/items": {
+        "/api/v1/item/list": {
             "get": {
                 "description": "获取所有商品的列表信息",
                 "consumes": [
@@ -38,6 +38,58 @@
                     },
                     "500": {
                         "description": "获取商品列表失败",
+                        "schema": {
+                            "$ref": "#/definitions/ctl.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/user/login": {
+            "post": {
+                "description": "商家端登录（只有一个合法帐号）",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "权限管理"
+                ],
+                "summary": "商家端登录",
+                "parameters": [
+                    {
+                        "description": "登录请求体",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.UserLoginReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "登录接口请求成功",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/ctl.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/types.UserLoginResp"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "500": {
+                        "description": "登录接口请求错误",
                         "schema": {
                             "$ref": "#/definitions/ctl.Response"
                         }
@@ -101,6 +153,28 @@
                     "type": "string"
                 },
                 "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "types.UserLoginReq": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "types.UserLoginResp": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean"
+                },
+                "token": {
                     "type": "string"
                 }
             }
