@@ -37,10 +37,24 @@ definitions:
       title:
         type: string
     type: object
+  types.UserLoginReq:
+    properties:
+      password:
+        type: string
+      user_name:
+        type: string
+    type: object
+  types.UserLoginResp:
+    properties:
+      success:
+        type: boolean
+      token:
+        type: string
+    type: object
 info:
   contact: {}
 paths:
-  /api/v1/items:
+  /api/v1/item/list:
     get:
       consumes:
       - application/json
@@ -64,4 +78,35 @@ paths:
       summary: 获取商品列表
       tags:
       - 商品管理
+  /api/v1/user/login:
+    post:
+      consumes:
+      - application/json
+      description: 商家端登录（只有一个合法帐号）
+      parameters:
+      - description: 登录请求体
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/types.UserLoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 登录接口请求成功
+          schema:
+            allOf:
+            - $ref: '#/definitions/ctl.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/types.UserLoginResp'
+              type: object
+        "500":
+          description: 登录接口请求错误
+          schema:
+            $ref: '#/definitions/ctl.Response'
+      summary: 商家端登录
+      tags:
+      - 权限管理
 swagger: "2.0"
